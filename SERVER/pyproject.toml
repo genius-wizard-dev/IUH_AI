@@ -1,0 +1,24 @@
+[project]
+name = "ai-tvts"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4==4.13.3",
+    "dotenv==0.9.9",
+    "fastapi[standard]==0.115.11",
+    "firecrawl>=1.13.5",
+    "langchain==0.3.19",
+    "langchain-community==0.3.18",
+    "langchain-google-genai==2.0.11",
+    "langchain-openai==0.3.7",
+    "langchain-pinecone==0.2.3",
+    "langgraph==0.3.2",
+    "pinecone==5.4.2",
+    "pydantic==2.10.6",
+    "pymongo==4.11.1",
+    "redis==5.2.1",
+    "upstash-vector>=0.8.0",
+    "uvicorn==0.34.0",
+]

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Chatbot Tư Vấn Tuyển Sinh - IUH" />
+    <meta property="og:description" content="Hỗ trợ tư vấn tuyển sinh, giải đáp thắc mắc cho sinh viên tương lai của IUH." />
+    <meta property="og:image" content="http://tvts.iuh.edu.vn/logo.png" />
+    <meta property="og:url" content="http://tvts.iuh.edu.vn/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="IUH AI Tư Vấn Tuyển Sinh" />
+    <title>IUH AI TVTS</title>
+  </head>
+  <body>
+    <!-- Nguyễn Thành Thuận -->
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      const titles = ["IUH AI TVTS", "Welcome to IUH"];
+      let currentIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      let timeoutVal = 150;
+
+      function animateTitle() {
+        const currentTitle = titles[currentIndex];
+
+        if (isDeleting) {
+          document.title =
+            currentTitle.substring(0, charIndex + 1) +
+            (charIndex < currentTitle.length - 1 ? "_" : "");
+          charIndex--;
+          timeoutVal = 100;
+        } else {
+          document.title =
+            currentTitle.substring(0, charIndex + 1) +
+            (charIndex < currentTitle.length - 1 ? "_" : "");
+          charIndex++;
+          timeoutVal = 200;
+        }
+
+        if (!isDeleting && charIndex === currentTitle.length) {
+          isDeleting = true;
+          timeoutVal = 1000;
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          currentIndex = (currentIndex + 1) % titles.length;
+          timeoutVal = 500;
+        }
+
+        setTimeout(animateTitle, timeoutVal);
+      }
+
+      animateTitle();
+    </script>
+  </body>
+</html>
